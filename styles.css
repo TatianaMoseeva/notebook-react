@@ -50,7 +50,6 @@ h1 {
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    outline: none;
 }
 
 .add-btn {
@@ -112,7 +111,6 @@ h1 {
 .textarea {
     padding: 20px;
     resize: none;
-    outline: none;
     background: #F2F2F2;
     border: 1px solid #D7D7D7;
     border-radius: 4px;
@@ -121,8 +119,4 @@ h1 {
     font-size: 20px;
     line-height: 23px;
     
-}
-
-.textarea:focus {
-    border: 1px solid #9e9d9d;
 }
