@@ -25,7 +25,7 @@ const NavButton = styled.button`
 `;
 
 
-function NoteItem({id, title, content}) {
+function NoteItem({title}) {
 
     return ( 
         <NavButton>{title}</NavButton> 

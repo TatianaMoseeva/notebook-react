@@ -41,7 +41,7 @@ const ActionsBar = styled.div`
         width: 100%;
         height: 40px;
         background-color: #D67D70;
-        border: none;
+        border: 1px solid #c27165;
         border-radius: 4px;
         
         color: #fff;
