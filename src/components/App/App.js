@@ -22,26 +22,37 @@ const initData = [
 
 function App() {
 
-const [notes, setNotes] = useState(initData);
+    const [notes, setNotes] = useState(initData);
 
-function toggleActive(id) {
-    setNotes(notes.map(note => {
-        if (note.id === id) {
-           note.active = true;
-        } else {
-            note.active = false;
-        }
-        return note;
-    }));
-}
+    function toggleActive(id) {
+        setNotes(notes.map(note => {
+            if (note.id === id) {
+            note.active = true;
+            } else {
+                note.active = false;
+            }
+            return note;
+        }));
+    }
+
+    function showNote() {
+        let text;
+        notes.forEach(note => {
+            if (note.active === true) {
+                text = note.content;
+            }
+        })
+        return text;
+    }
 
 
-  return ( 
-    <div className="container">
-            <Header />
-            <NotesField notes={notes} toggleActive={toggleActive}/>
-    </div>
-  );
+    return ( 
+        <div className="container">
+                <Header />
+                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote}/>
+        </div>
+    );
 }
 
 export default App;
+

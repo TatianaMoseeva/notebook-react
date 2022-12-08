@@ -15,7 +15,7 @@ const Field = styled.main`
     }
 `;
 
-function NotesField({notes, toggleActive}) {
+function NotesField({notes, toggleActive, showNote}) {
 
     const elems =  notes.map(note => {
         return  <NoteItem
@@ -33,7 +33,7 @@ function NotesField({notes, toggleActive}) {
                 {elems}
             </nav>
                 
-            <TextArea notes={notes}/>
+            <TextArea notes={notes} showNote={showNote}/>
                 
         </Field>
     );
