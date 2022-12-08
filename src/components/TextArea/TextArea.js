@@ -13,10 +13,14 @@ const TextField = styled.textarea`
 `;
 
 
-function TextArea({notes, showNote}) {
+function TextArea({notes, showNote, editNote}) {
 
     return ( 
-        <TextField placeholder="Note" value={showNote()}/>
+        <TextField 
+            placeholder="Note" 
+            value={showNote()}
+            onChange={event => editNote(event)}
+        />
     );
   }
 

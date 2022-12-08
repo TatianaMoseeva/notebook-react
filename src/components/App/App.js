@@ -45,11 +45,20 @@ function App() {
         return text;
     }
 
+    function editNote(event) {
+		setNotes(notes.map(note => {
+			if (note.active === true) {
+				note.content = event.target.value;
+			}
+			
+			return note;
+		}));
+	}
 
     return ( 
         <div className="container">
                 <Header />
-                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote}/>
+                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote}/>
         </div>
     );
 }
