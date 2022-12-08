@@ -27,7 +27,9 @@ const [notes, setNotes] = useState(initData);
 function toggleActive(id) {
     setNotes(notes.map(note => {
         if (note.id === id) {
-           note.active = !note.active;
+           note.active = true;
+        } else {
+            note.active = false;
         }
         return note;
     }));
