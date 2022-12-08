@@ -15,16 +15,17 @@ const Field = styled.main`
     }
 `;
 
-function NotesField({notes}) {
+function NotesField({notes, toggleActive}) {
 
     const elems =  notes.map(note => {
         return  <NoteItem
                     key={note.id}
                     id={note.id}
                     title={note.title}
+                    active={note.active}
+                    toggleActive={toggleActive}
             /> 
     })
-
 
     return ( 
         <Field>

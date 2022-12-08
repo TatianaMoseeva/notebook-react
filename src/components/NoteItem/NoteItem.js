@@ -7,7 +7,6 @@ const NavButton = styled.button`
     box-shadow: 0px 6px 16px #D7D7D7;
     border: none;
     border-radius: 4px;
-
     color: #fff;
     font-weight: 400;
     font-size: 20px;
@@ -24,11 +23,18 @@ const NavButton = styled.button`
     }
 `;
 
-
-function NoteItem({title}) {
+function NoteItem({id, title, active, toggleActive}) {
+    let activeClass = '';
+    if (active) {
+        activeClass+= ' active';
+    }
 
     return ( 
-        <NavButton>{title}</NavButton> 
+        <NavButton 
+            className={activeClass}
+            onClick={() => toggleActive(id)}
+        >
+            {title}</NavButton> 
     );
   }
 

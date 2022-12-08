@@ -11,12 +11,12 @@ function id() {
 }
 
 const initData = [
-    {id: id(), title: 'Title', content: ''},
-    {id: id(), title: 'Cake Recipe', content: 'Note 1...'},
-    {id: id(), title: 'Lecture notes', content: 'Note 2...'},
-    {id: id(), title: 'Some ideas', content: 'Note 3...'},
-    {id: id(), title: 'Birthdays', content: 'Note 4...'},
-    {id: id(), title: 'This week expences', content: 'Note 5...'}
+    {id: id(), title: 'Title', content: '', active: true},
+    {id: id(), title: 'Cake Recipe', content: 'Note 1...', active: false},
+    {id: id(), title: 'Lecture notes', content: 'Note 2...', active: false},
+    {id: id(), title: 'Some ideas', content: 'Note 3...', active: false},
+    {id: id(), title: 'Birthdays', content: 'Note 4...', active: false},
+    {id: id(), title: 'This week expences', content: 'Note 5...', active: false}
 ];
 
 
@@ -24,10 +24,20 @@ function App() {
 
 const [notes, setNotes] = useState(initData);
 
+function toggleActive(id) {
+    setNotes(notes.map(note => {
+        if (note.id === id) {
+           note.active = !note.active;
+        }
+        return note;
+    }));
+}
+
+
   return ( 
     <div className="container">
             <Header />
-            <NotesField notes={notes}/>
+            <NotesField notes={notes} toggleActive={toggleActive}/>
     </div>
   );
 }
