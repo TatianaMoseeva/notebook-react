@@ -11,7 +11,7 @@ function id() {
 }
 
 const initData = [
-    {id: id(), title: 'Title', content: '', active: true},
+    {id: id(), title: 'New note', content: '', active: true},
     {id: id(), title: 'Cake Recipe', content: 'Note 1...', active: false},
     {id: id(), title: 'Lecture notes', content: 'Note 2...', active: false},
     {id: id(), title: 'Some ideas', content: 'Note 3...', active: false},
@@ -55,10 +55,21 @@ function App() {
 		}));
 	}
 
+    function addNote(title, content) {
+        let newNote = {
+            id: id(),  
+            title: title,
+            content: content
+        };
+        if (newNote.content.length > 0 ) {
+            setNotes([...notes, newNote]);
+        }
+    }
+
     return ( 
         <div className="container">
                 <Header />
-                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote}/>
+                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote}/>
         </div>
     );
 }

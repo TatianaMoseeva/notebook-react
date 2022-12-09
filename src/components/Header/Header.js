@@ -1,5 +1,7 @@
 
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const TopContent = styled.header`
     margin: 40px auto;
@@ -62,7 +64,7 @@ function Header() {
             <h1>My notes</h1>
                 <ActionsBar>
                     <input type="search" role="searchbox" placeholder="Search"></input>
-                    <button><i className="fa-solid fa-plus"></i> Add note</button>
+                    <button><FontAwesomeIcon icon={faPlus} /> Add note</button>
                 </ActionsBar>
         </TopContent>
 

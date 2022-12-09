@@ -12,6 +12,7 @@ const NavButton = styled.button`
     font-size: 20px;
     line-height: 23px;
     transition: all .3s;
+    text-overflow: ellipsis;
     :hover {
         background-color: #565794;
     }
