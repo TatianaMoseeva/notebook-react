@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {useState} from 'react';
+
 
 const TextField = styled.textarea`
     padding: 20px;
@@ -13,10 +13,12 @@ const TextField = styled.textarea`
     line-height: 23px;
 `;
 
+function makeTitle(text) {
+    return text.slice(0, 15) + '...';
+}
 
-function TextArea({showNote, editNote, addNote}) {
+function TextArea({showNote, editNote, addNote, addNewMode}) {
 
-    const [addNewMode, setAddNewMode] = useState(null);
 
     let elem;
     if (!addNewMode) {
@@ -24,7 +26,7 @@ function TextArea({showNote, editNote, addNote}) {
                     placeholder="Note" 
                     value={showNote()}
                     onChange={event => editNote(event)}
-                    onBlur={(event) => addNote('test', event.target.value)}
+                    onBlur={(event) => addNote(makeTitle(event.target.value), event.target.value)}
                 />
     } else {
         elem =  <TextField 
@@ -35,11 +37,11 @@ function TextArea({showNote, editNote, addNote}) {
     }
 
 
-    return ( <>
+    return <>
        {elem}
     </>
  
-    );
+
   }
 
   export default TextArea;

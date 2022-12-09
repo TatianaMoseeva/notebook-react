@@ -12,7 +12,7 @@ const NavButton = styled.button`
     font-size: 20px;
     line-height: 23px;
     transition: all .3s;
-    text-overflow: ellipsis;
+
     :hover {
         background-color: #565794;
     }
@@ -24,7 +24,7 @@ const NavButton = styled.button`
     }
 `;
 
-function NoteItem({id, title, active, toggleActive}) {
+function NoteItem({id, title, active, toggleActive, switchToEdit}) {
     let activeClass = '';
     if (active) {
         activeClass+= ' active';
@@ -33,7 +33,7 @@ function NoteItem({id, title, active, toggleActive}) {
     return ( 
         <NavButton 
             className={activeClass}
-            onClick={() => toggleActive(id)}
+            onClick={() => {toggleActive(id); switchToEdit()}}
         >
             {title}</NavButton> 
     );
