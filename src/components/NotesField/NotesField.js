@@ -3,6 +3,7 @@ import {useState} from 'react';
 
 import NoteItem from '../NoteItem/NoteItem';
 import TextArea from '../TextArea/TextArea';
+import AddNew from '../AddNew/AddNew';
 
 const Field = styled.main`
     display: grid;
@@ -18,10 +19,10 @@ const Field = styled.main`
 
 function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
     
-    const [addNewMode, setAddNewMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     function switchToEdit() {
-        setAddNewMode(true)
+        setEditMode(true)
     }
 
     const elems =  notes.map(note => {
@@ -38,6 +39,7 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
     return ( 
         <Field>
             <nav>
+                <AddNew />
                 {elems}
             </nav>
                 
@@ -46,7 +48,7 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
                 showNote={showNote} 
                 editNote={editNote} 
                 addNote={addNote} 
-                addNewMode={addNewMode}
+                editMode={editMode}
             />
 
         </Field>

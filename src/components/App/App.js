@@ -11,7 +11,7 @@ function id() {
 }
 
 const initData = [
-    {id: id(), title: 'New note', content: '', active: true},
+    // {id: id(), title: 'New note', content: '', active: true},
     {id: id(), title: 'Cake Recipe', content: 'Note 1...', active: false},
     {id: id(), title: 'Lecture notes', content: 'Note 2...', active: false},
     {id: id(), title: 'Some ideas', content: 'Note 3...', active: false},

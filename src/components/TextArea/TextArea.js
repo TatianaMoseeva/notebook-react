@@ -17,11 +17,11 @@ function makeTitle(text) {
     return text.slice(0, 15) + '...';
 }
 
-function TextArea({showNote, editNote, addNote, addNewMode}) {
+function TextArea({showNote, editNote, addNote, editMode}) {
 
 
     let elem;
-    if (!addNewMode) {
+    if (!editMode) {
         elem =  <TextField 
                     placeholder="Note" 
                     value={showNote()}
