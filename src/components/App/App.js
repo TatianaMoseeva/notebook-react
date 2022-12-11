@@ -26,7 +26,7 @@ function App() {
     function toggleActive(id) {
         setNotes(notes.map(note => {
             if (note.id === id) {
-            note.active = true;
+                note.active = true;
             } else {
                 note.active = false;
             }

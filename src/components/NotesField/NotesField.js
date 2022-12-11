@@ -6,6 +6,7 @@ import TextArea from '../TextArea/TextArea';
 import AddNew from '../AddNew/AddNew';
 
 const Field = styled.main`
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: 200px auto;
     gap: 30px;
