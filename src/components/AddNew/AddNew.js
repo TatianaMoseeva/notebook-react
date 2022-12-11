@@ -29,4 +29,4 @@ function AddNew({switchToEdit}) {
     );
   }
 
-  export default AddNew;
+export default AddNew;

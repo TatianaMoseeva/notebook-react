@@ -34,6 +34,7 @@ function App() {
         }));
     }
 
+    
     function showNote() {
         let text;
         notes.forEach(note => {
@@ -68,7 +69,7 @@ function App() {
     return ( 
         <div className="container">
                 <Header />
-                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote}/>
+                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} />
         </div>
     );
 }

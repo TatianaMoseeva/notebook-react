@@ -36,6 +36,7 @@ function TextArea({showNote, editNote, addNote, editMode}) {
                     placeholder="Note" 
                     value={showNote()}
                     onChange={event => editNote(event)}
+
                 /> 
     }
 
