@@ -5,7 +5,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const CreateBtn = styled.button`
     width: 100%;
     height: 40px;
-
     box-shadow: 0px 6px 16px #D7D7D7;
     border: 2px solid #D67D70;
     border-radius: 4px;
@@ -21,11 +20,12 @@ const CreateBtn = styled.button`
     }
 `;
 
-function AddNew() {
+function AddNew({switchToEdit}) {
      
-
     return ( 
-        <CreateBtn><FontAwesomeIcon icon={faPlus} /> Add Note</CreateBtn> 
+        <CreateBtn
+            onClick={() => switchToEdit(false)}
+        ><FontAwesomeIcon icon={faPlus} /> Add Note</CreateBtn> 
     );
   }
 

@@ -33,7 +33,7 @@ function NoteItem({id, title, active, toggleActive, switchToEdit}) {
     return ( 
         <NavButton 
             className={activeClass}
-            onClick={() => {toggleActive(id); switchToEdit()}}
+            onClick={() => {toggleActive(id); switchToEdit(true)}}
         >
             {title}</NavButton> 
     );

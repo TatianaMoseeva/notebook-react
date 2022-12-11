@@ -21,8 +21,8 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
     
     const [editMode, setEditMode] = useState(false);
 
-    function switchToEdit() {
-        setEditMode(true)
+    function switchToEdit(mode) {
+        setEditMode(mode)
     }
 
     const elems =  notes.map(note => {
@@ -39,7 +39,7 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
     return ( 
         <Field>
             <nav>
-                <AddNew />
+                <AddNew switchToEdit={switchToEdit} />
                 {elems}
             </nav>
                 
