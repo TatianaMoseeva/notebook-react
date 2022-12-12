@@ -66,7 +66,7 @@ function App() {
         }
     }
 
-    function removeNote(id) {
+    function removeNote() {
         setNotes(notes.filter(note => note.active !== true));
     }
 

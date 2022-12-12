@@ -60,7 +60,7 @@ function NoteItem({id, title, active, toggleActive, switchToEdit, removeNote}) {
             {title}
             
         </NavButton> 
-        <Circle><FontAwesomeIcon icon={faTrash} onClick={() => removeNote(id)}/></Circle>
+        <Circle><FontAwesomeIcon icon={faTrash} onClick={() => removeNote()}/></Circle>
     </>
 
     );
