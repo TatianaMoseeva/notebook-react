@@ -57,7 +57,8 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNot
                 editNote={editNote} 
                 addNote={addNote} 
                 editMode={editMode}
-
+                removeNote={removeNote}
+                switchToEdit={switchToEdit}
             />
         
             
