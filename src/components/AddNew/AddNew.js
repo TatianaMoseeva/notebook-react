@@ -12,6 +12,7 @@ const CreateBtn = styled.button`
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
+    cursor: pointer;
     transition: all .3s;
 
     :hover {

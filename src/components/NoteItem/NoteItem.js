@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 const NavButton = styled.button`
     width: 100%;
     height: 40px;
@@ -11,8 +14,8 @@ const NavButton = styled.button`
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
+    cursor: pointer;
     transition: all .3s;
-
     :hover {
         background-color: #565794;
     }
@@ -24,18 +27,42 @@ const NavButton = styled.button`
     }
 `;
 
-function NoteItem({id, title, active, toggleActive, switchToEdit}) {
+const Circle = styled.div`
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 100%;
+    color: #D7D7D7;
+    transition: all .3s;
+    :hover {
+        color: #b5b5b5;
+    }
+    cursor: pointer;
+`;
+
+function NoteItem({id, title, active, toggleActive, switchToEdit, removeNote}) {
     let activeClass = '';
     if (active) {
         activeClass+= ' active';
     }
 
-    return ( 
-        <NavButton 
+    return ( <>
+            <NavButton 
             className={activeClass}
             onClick={() => {toggleActive(id); switchToEdit(true)}}
         >
-            {title}</NavButton> 
+            {title}
+            
+        </NavButton> 
+        <Circle><FontAwesomeIcon icon={faTrash} onClick={() => removeNote(id)}/></Circle>
+    </>
+
     );
   }
 

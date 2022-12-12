@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 
 
 import NoteItem from '../NoteItem/NoteItem';
@@ -22,27 +21,16 @@ const Field = styled.main`
     }
 `;
 
-const Circle = styled.div`
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    border-radius: 100%;
-    color: #b5b5b5;
-`;
 
-function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
+
+function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNote}) {
     
     const [editMode, setEditMode] = useState(false);
 
     function switchToEdit(mode) {
         setEditMode(mode)
     }
+
 
     const elems =  notes.map(note => {
         return  <NoteItem
@@ -52,8 +40,9 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
                     active={note.active}
                     toggleActive={toggleActive}
                     switchToEdit={switchToEdit}
+                    removeNote={removeNote}
             /> 
-    })
+    });
 
     return ( 
         <Field>
@@ -70,8 +59,8 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote}) {
                 editMode={editMode}
 
             />
-        <Circle><FontAwesomeIcon icon={faTrash} /></Circle>
-         
+        
+            
         </Field>
     );
   }

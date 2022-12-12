@@ -66,10 +66,16 @@ function App() {
         }
     }
 
+    function removeNote(id) {
+        setNotes(notes.filter(note => note.active !== true));
+    }
+
+
+
     return ( 
         <div className="container">
                 <Header />
-                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} />
+                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote}/>
         </div>
     );
 }
