@@ -22,6 +22,9 @@ const initData = [
 function App() {
 
     const [notes, setNotes] = useState(initData);
+    const [query, setQuery] = useState('');
+
+    const visibleData = searchNote(notes, query);
 
     function toggleActive(id) {
         setNotes(notes.map(note => {
@@ -34,7 +37,6 @@ function App() {
         }));
     }
 
-    
     function showNote() {
         let text;
         notes.forEach(note => {
@@ -70,12 +72,23 @@ function App() {
         setNotes(notes.filter(note => note.active !== true));
     }
 
+    function searchNote (items, term) {
+        if (term.length === 0) {
+            return items;
+        }
+        return items.filter(item => {
+            return item.title.indexOf(term) > -1;
+        })
+    }
 
+    function handleSearch (e) {
+        setQuery(e.target.value);
+    }
 
     return ( 
         <div className="container">
-                <Header />
-                <NotesField notes={notes} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote}/>
+                <Header query={query} handleSearch={handleSearch}/>
+                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote}/>
         </div>
     );
 }

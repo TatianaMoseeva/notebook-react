@@ -34,7 +34,6 @@ const ActionsBar = styled.div`
         background: #FFFFFF;
         border: none;
         border-radius: 4px;
-
         font-weight: 400;
         font-size: 20px;
         line-height: 23px;
@@ -45,7 +44,6 @@ const ActionsBar = styled.div`
         background-color: #D67D70;
         border: 1px solid #c27165;
         border-radius: 4px;
-        
         color: #fff;
         font-weight: 400;
         font-size: 20px;
@@ -58,12 +56,19 @@ const ActionsBar = styled.div`
     }
 `;
 
-function Header() {
+function Header({query, handleSearch}) {
     return ( 
         <TopContent>
             <h1>My notes</h1>
                 <ActionsBar>
-                    <input type="search" role="searchbox" placeholder="Search"></input>
+                    <input 
+                        type="search" 
+                        role="searchbox" 
+                        placeholder="Search"
+                        value={query}
+                        onChange={handleSearch}
+                    />
+
                     {/* <button><FontAwesomeIcon icon={faPlus} /> Add note</button> */}
                 </ActionsBar>
         </TopContent>
@@ -72,6 +77,4 @@ function Header() {
   }
   
   export default Header;
-
-//   aria-description="search results will appear below"
 
