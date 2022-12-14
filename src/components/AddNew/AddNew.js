@@ -26,7 +26,10 @@ function AddNew({switchToEdit, removeActive}) {
     return ( 
         <CreateBtn
             onClick={() => {switchToEdit(false); removeActive()}}
-        ><FontAwesomeIcon icon={faPlus} /> Add Note</CreateBtn> 
+        >
+            <FontAwesomeIcon icon={faPlus} /> 
+            Add Note
+        </CreateBtn> 
     );
   }
 

@@ -66,6 +66,5 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNot
         </Field>
     );
   }
-            // <i className="fa-regular fa-copy"></i>
             
   export default NotesField;
