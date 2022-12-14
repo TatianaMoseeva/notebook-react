@@ -23,7 +23,7 @@ const Field = styled.main`
 
 
 
-function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNote}) {
+function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNote, removeActive}) {
     
     const [editMode, setEditMode] = useState(false);
 
@@ -47,7 +47,7 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNot
     return ( 
         <Field>
             <nav>
-                <AddNew switchToEdit={switchToEdit} />
+                <AddNew switchToEdit={switchToEdit} removeActive={removeActive}/>
                 {elems}
             </nav>
                 

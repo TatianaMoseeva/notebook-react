@@ -21,11 +21,11 @@ const CreateBtn = styled.button`
     }
 `;
 
-function AddNew({switchToEdit}) {
+function AddNew({switchToEdit, removeActive}) {
      
     return ( 
         <CreateBtn
-            onClick={() => switchToEdit(false)}
+            onClick={() => {switchToEdit(false); removeActive()}}
         ><FontAwesomeIcon icon={faPlus} /> Add Note</CreateBtn> 
     );
   }

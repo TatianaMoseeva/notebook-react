@@ -37,6 +37,14 @@ function App() {
         }));
     }
 
+    function removeActive() {
+        setNotes(notes.map(note => {
+            if (note.active === true) {
+                note.active = false;
+            } return note;
+        }))
+    }
+
     function showNote() {
         let text;
         notes.forEach(note => {
@@ -88,7 +96,7 @@ function App() {
     return ( 
         <div className="container">
                 <Header query={query} handleSearch={handleSearch}/>
-                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote}/>
+                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote} removeActive={removeActive}/>
         </div>
     );
 }
