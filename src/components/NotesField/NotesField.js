@@ -13,6 +13,7 @@ const Field = styled.main`
     display: grid;
     grid-template-columns: 200px auto;
     gap: 30px;
+    align-items: start;
     nav {
         display: grid;
         grid-template-columns: auto;

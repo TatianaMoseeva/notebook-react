@@ -6,7 +6,9 @@ import {useState} from 'react';
 
 
 const TextField = styled.textarea`
-    padding: 20px;
+    padding: 30px;
+    min-height: 340px;
+
     resize: none;
     background: #F2F2F2;
     border: 1px solid #D7D7D7;
@@ -19,17 +21,17 @@ const TextField = styled.textarea`
 
 const Circle = styled.div`
     position: absolute;
-    right: 10px;
+    right: 20px;
     top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #fff;
     border-radius: 100%;
     color: #D7D7D7;
-    transition: all .3s;
+    transition: all .2s;
     :hover {
         color: #b5b5b5;
     }
@@ -65,7 +67,10 @@ function TextArea({showNote, editNote, addNote, editMode, removeNote, switchToEd
                                 onChange={event => editNote(event)}
                             /> 
                     <Circle>
-                        <FontAwesomeIcon icon={faTrash} onClick={() => {removeNote(); switchToEdit(false)}}/>
+                        <FontAwesomeIcon 
+                            icon={faTrash} 
+                            title="Delete note" 
+                            onClick={() => {removeNote(); switchToEdit(false)}}/>
                     </Circle>
                 </>
     }
