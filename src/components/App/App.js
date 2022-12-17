@@ -100,7 +100,7 @@ function App() {
     return ( 
         <div className="container">
                 <Header query={query} handleSearch={handleSearch} removeActive={removeActive} switchToEdit={switchToEdit}/>
-                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editMode={editMode} switchToEdit={switchToEdit} editNote={editNote} addNote={addNote} removeNote={removeNote} removeActive={removeActive}/>
+                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editMode={editMode} switchToEdit={switchToEdit} editNote={editNote} addNote={addNote} removeNote={removeNote} />
         </div>
     );
 }

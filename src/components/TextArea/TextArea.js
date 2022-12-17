@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faFloppyDisk} from '@fortawesome/free-solid-svg-icons'
 
 import {useState} from 'react';
 
@@ -19,21 +20,28 @@ const TextField = styled.textarea`
     line-height: 23px;
 `;
 
-const Circle = styled.div`
+const IconsWrap = styled.div`
     position: absolute;
     right: 20px;
     top: 10px;
+    display: flex;
+    flex-direction: row;
+`;
+
+const Circle = styled.div`
+
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25px;
     height: 25px;
-    background-color: #fff;
+
+    
     border-radius: 100%;
-    color: #D7D7D7;
+    color: #b5b5b5;
     transition: all .2s;
     :hover {
-        color: #b5b5b5;
+        color: #000;
     }
     cursor: pointer;
 `;
@@ -50,33 +58,37 @@ function TextArea({showNote, editNote, addNote, editMode, removeNote, switchToEd
 
     let elem;
     if (!editMode) {
-        elem =  <>
-                    <TextField 
-                        placeholder="Note" 
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        onBlur={(event) => {addNote(makeTitle(event.target.value), event.target.value); setValue('')}}
-                    />
-            </>
+        elem =  <TextField 
+                    placeholder="Type a note here" 
+                    value={value}
+                    onChange={event => setValue(event.target.value)}
+                    onBlur={(event) => {addNote(makeTitle(event.target.value), event.target.value); setValue('')}}
+                />
         
     } else {
-        elem =  <>
-                    <TextField 
-                                placeholder="Note" 
-                                value={showNote()}
-                                onChange={event => editNote(event)}
-                            /> 
-                    <Circle>
-                        <FontAwesomeIcon 
-                            icon={faTrash} 
-                            title="Delete note" 
-                            onClick={() => {removeNote(); switchToEdit(false)}}/>
-                    </Circle>
-                </>
+        elem = <TextField 
+                    placeholder="Type a note here" 
+                    value={showNote()}
+                    onChange={event => editNote(event)}
+                /> 
     }
 
     return <>
        {elem}
+       <IconsWrap>
+            <Circle>
+                <FontAwesomeIcon 
+                    icon={faFloppyDisk} 
+                    title="Save" 
+                    onClick={(event) => {addNote(makeTitle(event.target.value), event.target.value); setValue('')}}/>
+            </Circle>
+            <Circle>
+                <FontAwesomeIcon 
+                    icon={faTrash} 
+                    title="Delete" 
+                    onClick={() => {removeNote(); switchToEdit(false)}}/>
+            </Circle>
+        </IconsWrap>
     </>
  
 
