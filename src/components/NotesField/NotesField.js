@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import {useState} from 'react';
-
-
+// import {useState} from 'react';
 
 import NoteItem from '../NoteItem/NoteItem';
 import TextArea from '../TextArea/TextArea';
@@ -24,13 +22,13 @@ const Field = styled.main`
 
 
 
-function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNote, removeActive}) {
+function NotesField({notes, toggleActive, showNote, editMode, switchToEdit, editNote, addNote, removeNote, removeActive}) {
     
-    const [editMode, setEditMode] = useState(false);
+    // const [editMode, setEditMode] = useState(false);
 
-    function switchToEdit(mode) {
-        setEditMode(mode)
-    }
+    // function switchToEdit(mode) {
+    //     setEditMode(mode)
+    // }
 
 
     const elems =  notes.map(note => {
@@ -48,7 +46,7 @@ function NotesField({notes, toggleActive, showNote, editNote, addNote, removeNot
     return ( 
         <Field>
             <nav>
-                <AddNew switchToEdit={switchToEdit} removeActive={removeActive}/>
+                {/* <AddNew switchToEdit={switchToEdit} removeActive={removeActive}/> */}
                 {elems}
             </nav>
                 

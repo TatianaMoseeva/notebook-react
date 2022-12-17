@@ -11,11 +11,11 @@ function id() {
 }
 
 const initData = [
-    {id: id(), title: 'Cake Recipe', content: 'Note 1...', active: false},
-    {id: id(), title: 'Lecture notes', content: 'Note 2...', active: false},
-    {id: id(), title: 'Some ideas', content: 'Note 3...', active: false},
-    {id: id(), title: 'Birthdays', content: 'Note 4...', active: false},
-    {id: id(), title: 'This week expences', content: 'Note 5...', active: false}
+    {id: id(), title: 'Note example 1', content: 'Note 1...', active: false},
+    {id: id(), title: 'Note example 2', content: 'Note 2...', active: false},
+    {id: id(), title: 'Note example 3', content: 'Note 3...', active: false},
+    {id: id(), title: 'Note example 4', content: 'Note 4...', active: false},
+    {id: id(), title: 'Note example 5', content: 'Note 5...', active: false}
 ];
 
 
@@ -23,8 +23,12 @@ function App() {
 
     const [notes, setNotes] = useState(initData);
     const [query, setQuery] = useState('');
-
+    const [editMode, setEditMode] = useState(false);
     const visibleData = searchNote(notes, query);
+
+    function switchToEdit(mode) {
+        setEditMode(mode)
+    }
 
     function toggleActive(id) {
         setNotes(notes.map(note => {
@@ -95,8 +99,8 @@ function App() {
 
     return ( 
         <div className="container">
-                <Header query={query} handleSearch={handleSearch}/>
-                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editNote={editNote} addNote={addNote} removeNote={removeNote} removeActive={removeActive}/>
+                <Header query={query} handleSearch={handleSearch} removeActive={removeActive} switchToEdit={switchToEdit}/>
+                <NotesField notes={visibleData} toggleActive={toggleActive} showNote={showNote} editMode={editMode} switchToEdit={switchToEdit} editNote={editNote} addNote={addNote} removeNote={removeNote} removeActive={removeActive}/>
         </div>
     );
 }

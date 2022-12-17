@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const TopContent = styled.header`
     margin: 40px auto;
@@ -49,6 +49,7 @@ const ActionsBar = styled.div`
         font-size: 20px;
         line-height: 23px;
         text-transform: capitalize;
+        cursor: pointer;
         transition: all .3s;
         :hover {
             background-color: #c27165;
@@ -56,7 +57,7 @@ const ActionsBar = styled.div`
     }
 `;
 
-function Header({query, handleSearch}) {
+function Header({query, handleSearch, switchToEdit, removeActive}) {
     return ( 
         <TopContent>
             <h1>My notes</h1>
@@ -69,7 +70,10 @@ function Header({query, handleSearch}) {
                         onChange={handleSearch}
                     />
 
-                    {/* <button><FontAwesomeIcon icon={faPlus} /> Add note</button> */}
+                    <button 
+                        onClick={() => {switchToEdit(false); removeActive()}}>
+                            <FontAwesomeIcon icon={faPlus} /> Create note
+                    </button>
                 </ActionsBar>
         </TopContent>
 

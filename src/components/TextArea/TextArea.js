@@ -39,8 +39,8 @@ const Circle = styled.div`
 `;
 
 function makeTitle(text) {
-    if (text.length > 15) {
-        return text.slice(0, 15) + '...';
+    if (text.length > 10) {
+        return text.slice(0, 9) + '...';
     } return text;
     
 }
