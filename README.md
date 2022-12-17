@@ -3,7 +3,7 @@
 
 ## Link - [Project on Github pages](https://tatianamoseeva.github.io/notebook-react/)
 
-## Screenshot
+<img src="https://github.com/TatianaMoseeva/notebook-react/blob/main/notes.gif" width="400" />
 
 
 ## Features 
